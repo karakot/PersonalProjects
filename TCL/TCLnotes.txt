@@ -3,3 +3,6 @@
 	-do not need variable typing
 	-remember to use “$” for variable calls
 -to code block need to preface with backslash “\”
+-upvar gives local access to a higher level variable
+	-something like a pointer to the data that the passed
+	
