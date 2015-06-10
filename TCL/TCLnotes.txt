@@ -1,0 +1,5 @@
+-can do command replacement for command arguments
+-variable substitution, use “set” to create variables
+	-do not need variable typing
+	-remember to use “$” for variable calls
+-to code block need to preface with backslash “\”
