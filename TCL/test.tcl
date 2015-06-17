@@ -1,24 +1,23 @@
-#! /usr/bin/tclsh
 proc folderDump {baseDir} {
         set reportChannel [open "flatten.report" a]
         set currentDir "current directory $baseDir"
-        puts $currentDir
+        puts $reportChannel $currentDir
         set fileList [glob -nocomplain -directory $baseDir -types {f} -- "*"]
-        puts $fileList
         set dirList [glob -nocomplain -directory $baseDir -types {d} -- "*"]
-        puts [llength $fileList]
-        puts [llength $dirList]
         foreach fileName $fileList {
-                puts $reportChannel $fileName
-        }
-        if {[llength $dirList] ==0 } {
-                puts $reportChannel "end of directory"
+                set fileEntry "file: $fileName"
+                puts $reportChannel $fileEntry
         }
         close $reportChannel
         foreach dirName $dirList {
                 folderDump $dirName
         }
+
+        set reportChannel [open "flatten.report" a]
+        puts $reportChannel "end of $baseDir"
+        close $reportChannel
 }
+
 set reportChannel [open "flatten.report" w+]
 close $reportChannel
-folderDump "./dumbfolder"
+folderDump dumbFolder
