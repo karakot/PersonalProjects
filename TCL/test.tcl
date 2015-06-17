@@ -21,3 +21,4 @@ proc folderDump {baseDir} {
 }
 set reportChannel [open "flatten.report" w+]
 close $reportChannel
+folderDump "./dumbfolder"
