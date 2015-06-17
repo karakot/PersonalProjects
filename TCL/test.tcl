@@ -1,3 +1,4 @@
+#! /usr/bin/tclsh
 proc folderDump {baseDir} {
         set reportChannel [open "flatten.report" a]
         set currentDir "current directory $baseDir"
